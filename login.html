@@ -1,24 +1,54 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <div class="theme">
-        <label class="switch">
-             <input type="checkbox" onclick="switchTheme()">
-             <span class="slider"></span></span>
-        </label>
-    </div>
-    <div class="login-box">
-        <h1>Login</h1>
-        <form>
-            <input type="text" placeholder="matrícula" id="login-input">
-            <input type="password" placeholder="Senha" id="login-input">
-            <button type="submit" id="login-button">Entrar</button>
-        </form>
-    </div>
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title> Biblioteca Atena - Login</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+        <link rel="stylesheet" href="index.css" />
+        <link rel="stylesheet" href="estilo.css" />
+    </head>
+    <body>
+        <nav class="nav">
+            <div class="logo">
+                <img src="logo-horizontal.png" alt="BA - Biblioteca Atena" />
+                <span>  Biblioteca Atena  <small>IFG Campus Inhumas</small></span>
+            </div>
+            <ul class="menu">
+                <a href="index.html">Início</a>
+                <a href="index.html#destaques">Destaques</a>
+                <a href="jogos.html">Jogos</a>
+                <a href="login.html" class="ativo">Login</a>
+            </ul>
+        </nav>
+        <div class="conteudo">
+            <form class="cartao" action="painel.html">
+                <div class="icone-topo"><i class="fa-solid fa-user-lock"></i></div>
+                <h1>Acesse sua conta</h1>
+                <div class="campo">
+                    <i class="fa-regular fa-envelope"></i>
+                    <input type="text" placeholder="E-mail ou login" required />
+                </div>
+                <div class="campo">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" id="senha" placeholder="Senha" required />
+                    <i class="fa-regular fa-eye ver-senha" onclick="verSenha()"></i>
+                </div>
+                <button type="submit" class="btn-principal">Entrar</button>
+                <div class="links-cartao">
+                    <a href="#">Esqueceu sua senha?</a>
+                    <p>Não tem uma conta? Fale com a biblioteca.</p>
+                </div>
+            </form>
+        </div>
+        <div class="footer">
+            <p>&copy; 2026 Biblioteca Atena - IFG Campus Inhumas. Todos os direitos reservados.</p>
+        </div>
+        <script>
+            function verSenha() {
+                var campo = document.getElementById("senha");
+                campo.type = campo.type === "password" ? "text" : "password";
+            }
+        </script>
+    </body>
 </html>
