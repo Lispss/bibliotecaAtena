@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Biblioteca Atena - Usuários</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+        <link rel="stylesheet" href="index.css" />
+        <link rel="stylesheet" href="estilo.css" />
+        <link rel="stylesheet" href="admin.css" />
+    </head>
+    <body>
+        <nav class="nav">
+            <div class="logo"><img src="logo-horizontal.png" alt="BA - Biblioteca Atena" /></div>
+            <ul class="menu">
+                <a href="index.html">Início</a>
+                <a href="jogos.html">Jogos</a>
+                <a href="meus-dados.html" class="ativo">Minha conta</a>
+            </ul>
+        </nav>
+        <div class="admin">
+            <aside class="lateral">
+                <a href="painel.html"><i class="fa-solid fa-house"></i> Painel</a>
+                <a href="jogos-equipe.html"><i class="fa-solid fa-cube"></i> Jogos</a>
+                <a href="categorias.html"><i class="fa-solid fa-tags"></i> Categorias</a>
+                <a href="usuarios.html" class="ativo"><i class="fa-solid fa-users"></i> Usuários</a>
+                <a href="emprestimos.html"><i class="fa-solid fa-calendar"></i> Empréstimos</a>
+                <a href="relatorios.html"><i class="fa-solid fa-chart-simple"></i> Relatórios</a>
+                <a href="login.html"><i class="fa-solid fa-right-from-bracket"></i> Sair</a>
+            </aside>
+            <main class="principal">
+                <div class="topo"><h1>Usuários</h1><a href="criar-conta.html" class="btn">Adicionar usuário +</a></div>
+                <div class="topo"><span></span><input class="busca" type="text" placeholder="Pesquisar usuário" /></div>
+                <table class="tabela">
+                    <tr><th>Nome</th><th>Cargo</th><th>Permissão</th><th>E-mail</th><th>Ações</th></tr>
+                    <tr><td>Ana Paula</td><td>Bibliotecária</td><td><span class="selo verde">Administrador</span></td><td>ana.paula@ifg.edu.br</td><td class="acoes"><a href="editar-jogo.html"><i class="fa-solid fa-pen"></i></a><a href="#"><i class="fa-regular fa-trash-can"></i></a></td></tr>
+                    <tr><td>Carlos Lima</td><td>Técnico</td><td><span class="selo">Operador</span></td><td>carlos.lima@ifg.edu.br</td><td class="acoes"><a href="editar-jogo.html"><i class="fa-solid fa-pen"></i></a><a href="#"><i class="fa-regular fa-trash-can"></i></a></td></tr>
+                    <tr><td>Juliana Rocha</td><td>Estagiária</td><td><span class="selo">Usuário</span></td><td>juliana.rocha@ifg.edu.br</td><td class="acoes"><a href="editar-jogo.html"><i class="fa-solid fa-pen"></i></a><a href="#"><i class="fa-regular fa-trash-can"></i></a></td></tr>
+                </table>
+            </main>
+        </div>
+        <div class="footer">
+            <p>&copy; 2026 Biblioteca Atena - IFG Campus Inhumas. Todos os direitos reservados.</p>
+        </div>
+    </body>
+</html>

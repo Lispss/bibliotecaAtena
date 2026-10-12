@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Biblioteca Atena - Criar conta</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+        <link rel="stylesheet" href="index.css" />
+        <link rel="stylesheet" href="estilo.css" />
+    </head>
+    <body>
+        <nav class="nav">
+            <div class="logo">
+                <img src="logo-horizontal.png" alt="BA - Biblioteca Atena" />
+                <span>  Biblioteca Atena  <small>  IFG Campus Inhumas  </small></span>
+            </div>
+            <ul class="menu">
+                <a href="index.html">Início</a>
+                <a href="index.html#destaques">Destaques</a>
+                <a href="jogos.html">Jogos</a>
+                <a href="login.html" class="ativo">Login</a>
+            </ul>
+        </nav>
+        <div class="conteudo">
+            <form class="cartao" action="login.html">
+                <div class="icone-topo"><i class="fa-solid fa-user-plus"></i></div>
+                <h1>Crie sua conta</h1>
+                <div class="campo">
+                    <i class="fa-regular fa-user"></i>
+                    <input type="text" placeholder="Nome completo" required />
+                </div>
+                <div class="campo">
+                    <i class="fa-regular fa-envelope"></i>
+                    <input type="email" placeholder="E-mail" required />
+                </div>
+                <div class="campo">
+                    <i class="fa-regular fa-id-badge"></i>
+                    <input type="text" placeholder="Login" required />
+                </div>
+                <div class="campo">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" id="senha" placeholder="Senha" required />
+                    <i class="fa-regular fa-eye ver-senha" onclick="verSenha()"></i>
+                </div>
+                <div class="tipo-usuario">
+                    <strong>Tipo de usuário</strong>
+                    <div class="radios">
+                        <label><input type="radio" name="tipo" value="estudante" checked /> Estudante</label>
+                        <label><input type="radio" name="tipo" value="servidor" /> Servidor</label>
+                        <label><input type="radio" name="tipo" value="outro" /> Outro</label>
+                    </div>
+                </div>
+                <button type="submit" class="btn-principal">Cadastrar</button>
+            </form>
+        </div>
+        <div class="footer">
+            <p>&copy; 2026 Biblioteca Atena - IFG Campus Inhumas. Todos os direitos reservados.</p>
+        </div>
+        <script>
+            function verSenha() {
+                var campo = document.getElementById("senha");
+                campo.type = campo.type === "password" ? "text" : "password";
+            }
+        </script>
+    </body>
+</html>

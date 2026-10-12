@@ -1,0 +1,36 @@
+/* Telas da equipe. Use com: index.css, estilo.css e admin.css */
+.admin { flex: 1; display: flex; gap: 28px; padding: 30px 40px; align-items: flex-start; }
+.lateral { width: 220px; background-color: #1d5e34; border-radius: 12px; padding: 16px 10px; min-height: 420px; flex-shrink: 0; }
+.lateral a { display: flex; align-items: center; gap: 12px; padding: 12px 14px; margin-bottom: 4px; border-radius: 8px; font-size: 1rem; color: #e6f2e9; }
+.lateral a.ativo { background-color: #4c9a48; color: white; font-weight: 600; }
+.principal { flex: 1; min-width: 0; }
+.principal h1 { font-size: 2rem; margin-bottom: 20px; }
+.topo { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 10px; }
+.btn { display: inline-block; padding: 11px 22px; border: none; border-radius: 999px; background-color: #4c9a48; color: white; font-size: 1rem; font-weight: 600; cursor: pointer; }
+.btn-claro { background-color: white; color: #1f2937; border: 1px solid #d1d5db; }
+.busca { padding: 10px 16px; border: 1px solid #d1d5db; border-radius: 999px; font-size: 1rem; width: 260px; }
+.tabela { width: 100%; background-color: white; border-radius: 12px; border-collapse: collapse; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); overflow: hidden; }
+.tabela th, .tabela td { text-align: left; padding: 14px 16px; border-bottom: 1px solid #e5e7eb; font-size: 1rem; }
+.tabela img { width: 44px; height: 54px; object-fit: contain; }
+.selo { padding: 4px 14px; border-radius: 999px; font-size: 0.9rem; color: white; background-color: #6b7280; }
+.selo.verde { background-color: #4c9a48; }
+.acoes a { color: #1f2937; margin-right: 12px; font-size: 1rem; }
+.resumo { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 16px; margin-bottom: 26px; }
+.resumo div { background-color: white; border: 1px solid #075b22; border-radius: 12px; padding: 16px; }
+.resumo strong { display: block; font-size: 2rem; margin-top: 6px; }
+.principal h2 { font-size: 1.3rem; margin: 10px 0 12px; }
+.form-grid { background-color: white; border-radius: 12px; padding: 24px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.form-grid .larga { grid-column: 1 / -1; }
+.form-grid input, .form-grid select, .form-grid textarea { width: 100%; padding: 12px 14px; border: 1px solid #d1d5db; border-radius: 8px; font-size: 1rem; font-family: inherit; }
+.form-grid .botoes-form { display: flex; justify-content: space-between; }
+.abas { display: flex; gap: 6px; margin-bottom: 14px; }
+.abas a { padding: 10px 18px; border-radius: 8px 8px 0 0; font-size: 1rem; color: #4b5563; }
+.abas a.ativo { background-color: white; color: #075b22; font-weight: 600; }
+.filtros { display: flex; gap: 12px; background-color: white; padding: 16px; border-radius: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+.filtros input { padding: 10px; border: 1px solid #d1d5db; border-radius: 8px; font-size: 1rem; }
+@media (max-width: 800px) {
+    .admin { flex-direction: column; padding: 20px; }
+    .lateral { width: 100%; min-height: 0; }
+    .form-grid { grid-template-columns: 1fr; }
+    .tabela { display: block; overflow-x: auto; }
+}

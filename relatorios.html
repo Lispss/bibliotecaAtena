@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title> Biblioteca Atena - Relatórios </title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+        <link rel="stylesheet" href="index.css" />
+        <link rel="stylesheet" href="estilo.css" />
+        <link rel="stylesheet" href="admin.css" />
+    </head>
+    <body>
+        <nav class="nav">
+            <div class="logo"><img src="logo-horizontal.png" alt="BA - Biblioteca Atena" /></div>
+            <ul class="menu">
+                <a href="index.html">Início</a>
+                <a href="jogos.html">Jogos</a>
+                <a href="meus-dados.html" class="ativo">Minha conta</a>
+            </ul>
+        </nav>
+        <div class="admin">
+            <aside class="lateral">
+                <a href="painel.html"><i class="fa-solid fa-house"></i> Painel</a>
+                <a href="jogos-equipe.html"><i class="fa-solid fa-cube"></i> Jogos</a>
+                <a href="categorias.html"><i class="fa-solid fa-tags"></i> Categorias</a>
+                <a href="usuarios.html"><i class="fa-solid fa-users"></i> Usuários</a>
+                <a href="emprestimos.html"><i class="fa-solid fa-calendar"></i> Empréstimos</a>
+                <a href="relatorios.html" class="ativo"><i class="fa-solid fa-chart-simple"></i> Relatórios</a>
+                <a href="login.html"><i class="fa-solid fa-right-from-bracket"></i> Sair</a>
+            </aside>
+            <main class="principal">
+                <h1>Relatórios</h1>
+                <div class="abas"><a href="#" class="ativo">Empréstimos</a><a href="#">Jogos</a><a href="#">Usuários</a><a href="#">Categorias</a></div>
+                <div class="filtros"><input type="date" /><input type="date" /><button class="btn">Gerar relatório</button></div>
+                <div class="resumo"><div> Empréstimos: <strong>15</strong></div><div> Usuários ativos: <strong>8</strong></div></div>
+                <h2>Jogo mais emprestado: Jogo 1 (5)</h2>
+                <a href="#" class="btn btn-claro"><i class="fa-regular fa-file-pdf"></i> PDF</a>
+                <a href="#" class="btn btn-claro"><i class="fa-regular fa-file-excel"></i> Planilha</a>
+            </main>
+        </div>
+        <div class="footer">
+            <p>&copy; 2026 Biblioteca Atena - IFG Campus Inhumas. Todos os direitos reservados.</p>
+        </div>
+    </body>
+</html>

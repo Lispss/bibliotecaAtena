@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Biblioteca Atena - Meus dados</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+        <link rel="stylesheet" href="index.css" />
+        <link rel="stylesheet" href="estilo.css" />
+        <link rel="stylesheet" href="admin.css" />
+    </head>
+    <body>
+        <nav class="nav">
+            <div class="logo"><img src="logo-horizontal.png" alt="BA - Biblioteca Atena" /></div>
+            <ul class="menu">
+                <a href="index.html">Início</a>
+                <a href="jogos.html">Jogos</a>
+                <a href="meus-dados.html" class="ativo">Minha conta</a>
+            </ul>
+        </nav>
+        <div class="admin">
+            <aside class="lateral">
+                <a href="painel.html"><i class="fa-solid fa-house"></i> Início</a>
+                <a href="meus-dados.html" class="ativo"><i class="fa-solid fa-user"></i> Meus dados</a>
+                <a href="login.html"><i class="fa-solid fa-right-from-bracket"></i> Sair</a>
+            </aside>
+            <main class="principal">
+                <h1>Meus dados</h1>
+                <form class="form-grid" style="grid-template-columns: 1fr; max-width: 520px;">
+                    <input type="text" value="João da Silva" placeholder="Nome" />
+                    <input type="email" value="joao.silva@ifg.edu.br" placeholder="E-mail" />
+                    <input type="text" value="joao.silva" placeholder="Login" />
+                    <div class="botoes-form"><button type="submit" class="btn">Salvar alterações</button><a href="#" class="btn btn-claro">Alterar senha</a></div>
+                </form>
+            </main>
+        </div>
+        <div class="footer">
+            <p>&copy; 2026 Biblioteca Atena - IFG Campus Inhumas. Todos os direitos reservados.</p>
+        </div>
+    </body>
+</html>

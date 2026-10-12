@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Biblioteca Atena - Painel</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+        <link rel="stylesheet" href="index.css" />
+        <link rel="stylesheet" href="estilo.css" />
+        <link rel="stylesheet" href="admin.css" />
+    </head>
+    <body>
+        <nav class="nav">
+            <div class="logo"><img src="logo-horizontal.png" alt="BA - Biblioteca Atena" /></div>
+            <ul class="menu">
+                <a href="index.html">Início</a>
+                <a href="jogos.html">Jogos</a>
+                <a href="meus-dados.html" class="ativo">Minha conta</a>
+            </ul>
+        </nav>
+        <div class="admin">
+            <aside class="lateral">
+                <a href="painel.html" class="ativo"><i class="fa-solid fa-house"></i> Painel</a>
+                <a href="jogos-equipe.html"><i class="fa-solid fa-cube"></i> Jogos</a>
+                <a href="categorias.html"><i class="fa-solid fa-tags"></i> Categorias</a>
+                <a href="usuarios.html"><i class="fa-solid fa-users"></i> Usuários</a>
+                <a href="emprestimos.html"><i class="fa-solid fa-calendar"></i> Empréstimos</a>
+                <a href="relatorios.html"><i class="fa-solid fa-chart-simple"></i> Relatórios</a>
+                <a href="login.html"><i class="fa-solid fa-right-from-bracket"></i> Sair</a>
+            </aside>
+            <main class="principal">
+                <h1>Painel</h1>
+                <div class="resumo">
+                    <div>Total de jogos: <strong>48</strong></div>
+                    <div>Disponíveis: <strong>36</strong></div>
+                    <div>Emprestados: <strong>12</strong></div>
+                    <div>Usuários: <strong>5</strong></div>
+                </div>
+                <h2>Últimos empréstimos</h2>
+                <table class="tabela">
+                    <tr><th>Usuário  </th><th>  Jogo    </th><th>  Data do empréstimo  </th><th>  Status</th></tr>
+                    <tr><td>João Silva  </td><td>  Jogo 1    </td><td>  20/09/2026  </td><td><span class="selo verde">  Em uso</span></td></tr>
+                    <tr><td>Maria Oliveira  </td><td>  Jogo 2    </td><td>  18/09/2026  </td><td><span class="selo verde">  Em uso</span></td></tr>
+                    <tr><td>Pedro Santos  </td><td>  Jogo 3    </td><td>  10/09/2026  </td><td><span class="selo">  Devolvido</span></td></tr>
+                </table>
+            </main>
+        </div>
+        <div class="footer">
+            <p>&copy; 2026 Biblioteca Atena - IFG Campus Inhumas. Todos os direitos reservados.</p>
+        </div>
+    </body>
+</html>

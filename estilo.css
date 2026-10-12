@@ -1,0 +1,155 @@
+/* Estilo compartilhado das telas de formulário (login, criar conta, etc.).
+   Use junto com index.css (menu e rodapé): 
+   <link rel="stylesheet" href="index.css" />
+   <link rel="stylesheet" href="estilo.css" /> */
+
+body {
+    font-family: "Inter", Arial, sans-serif;
+    background-color: #f7f9f8;
+    color: #1f2937;
+    padding-top: 100px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.conteudo {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px 20px;
+}
+
+.cartao {
+    width: 100%;
+    max-width: 640px;
+    background-color: white;
+    border: 1px solid #e3e8e5;
+    border-radius: 24px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+}
+
+.icone-topo {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 12px;
+    border-radius: 50%;
+    background-color: #eefaf1;
+    color: #075b22;
+    font-size: 1.8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cartao h1 {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 28px;
+}
+
+.campo {
+    position: relative;
+    margin-bottom: 18px;
+}
+
+.campo > i:first-child {
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #9ca3af;
+}
+
+.campo input {
+    width: 100%;
+    padding: 18px 48px;
+    border: 1px solid #d1d5db;
+    border-radius: 14px;
+    background-color: #f9fafb;
+    font-size: 1.05rem;
+}
+
+.campo input:focus {
+    outline: 2px solid #4c9a48;
+    background-color: white;
+}
+
+.ver-senha {
+    position: absolute;
+    right: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6b7280;
+    cursor: pointer;
+}
+
+.tipo-usuario {
+    margin: 26px 0 24px;
+}
+
+.tipo-usuario strong {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.radios {
+    display: flex;
+    gap: 22px;
+    flex-wrap: wrap;
+}
+
+.radios label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 1.05rem;
+    cursor: pointer;
+}
+
+.btn-principal {
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: 12px;
+    background-color: #4c9a48;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 600;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.btn-principal:hover {
+    background-color: #3f8a3b;
+}
+
+.links-cartao {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.links-cartao a,
+.links-cartao p {
+    display: block;
+    font-size: 1rem;
+    color: #075b22;
+    margin-top: 12px;
+}
+
+.links-cartao p {
+    border-top: 1px solid #e3e8e5;
+    padding-top: 14px;
+}
+
+@media (max-width: 700px) {
+    body {
+        padding-top: 150px;
+    }
+
+    .cartao {
+        padding: 28px 20px;
+    }
+}

@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Biblioteca Atena - Editar jogo</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+        <link rel="stylesheet" href="index.css" />
+        <link rel="stylesheet" href="estilo.css" />
+        <link rel="stylesheet" href="admin.css" />
+    </head>
+    <body>
+        <nav class="nav">
+            <div class="logo"><img src="logo-horizontal.png" alt="BA - Biblioteca Atena" /></div>
+            <ul class="menu">
+                <a href="index.html">Início</a>
+                <a href="jogos.html">Jogos</a>
+                <a href="meus-dados.html" class="ativo">Minha conta</a>
+            </ul>
+        </nav>
+        <div class="admin">
+            <aside class="lateral">
+                <a href="painel.html"><i class="fa-solid fa-house"></i> Painel</a>
+                <a href="jogos-equipe.html" class="ativo"><i class="fa-solid fa-cube"></i> Jogos</a>
+                <a href="categorias.html"><i class="fa-solid fa-tags"></i> Categorias</a>
+                <a href="usuarios.html"><i class="fa-solid fa-users"></i> Usuários</a>
+                <a href="emprestimos.html"><i class="fa-solid fa-calendar"></i> Empréstimos</a>
+                <a href="relatorios.html"><i class="fa-solid fa-chart-simple"></i> Relatórios</a>
+                <a href="login.html"><i class="fa-solid fa-right-from-bracket"></i> Sair</a>
+            </aside>
+            <main class="principal">
+                <h1>Editar jogo</h1>
+                <form class="form-grid" action="jogos-equipe.html">
+                    <input class="larga" type="text" placeholder="Nome do jogo" value="Jogo 1" required />
+                    <select class="larga"><option>Categoria</option><option>Estratégia</option><option>Cartas</option><option>RPG</option><option>Raciocínio</option><option>Cooperativo</option><option>Memória</option></select>
+                    <input type="number" placeholder="Idade mínima" />
+                    <input type="number" placeholder="Idade máxima" />
+                    <input type="text" placeholder="Quantidade de jogadores" />
+                    <textarea class="larga" rows="4" placeholder="Descrição"></textarea>
+                    <input type="file" accept="image/*" title="Imagem do jogo" />
+                    <input type="file" accept=".pdf" title="Regras (PDF)" />
+                    <span></span>
+                    <div class="larga botoes-form"><a href="jogos-equipe.html" class="btn btn-claro">Cancelar</a><button type="submit" class="btn">Salvar</button></div>
+                </form>
+            </main>
+        </div>
+        <div class="footer">
+            <p>&copy; 2026 Biblioteca Atena - IFG Campus Inhumas. Todos os direitos reservados.</p>
+        </div>
+    </body>
+</html>
