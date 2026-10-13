@@ -3,15 +3,32 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title> Biblioteca Atena - Relatórios </title>
+        <title>Biblioteca Atena - Relatórios</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
         <link rel="stylesheet" href="index.css" />
         <link rel="stylesheet" href="estilo.css" />
         <link rel="stylesheet" href="admin.css" />
+        <link rel="stylesheet" href="responsivo.css" />
+
+        <style>
+            .periodo { margin: 0 0 14px; font-weight: 600; color: #075b22; }
+            .periodo:empty { display: none; }
+            @media print {
+                .nav, .lateral, .abas, .filtros, .nao-imprimir, .footer { display: none !important; }
+                body { background: white; padding: 0; }
+                .admin { padding: 0; }
+            }
+        </style>
     </head>
     <body>
         <nav class="nav">
-            <div class="logo"><img src="logo-horizontal.png" alt="BA - Biblioteca Atena" /></div>
+            <div class="logo"><img src="logo-horizontal.png" alt="BA - Biblioteca Atena" 
+        <nav class="nav">
+            <div class="logo">
+                <img src="logo-horizontal.png" alt="BA - Biblioteca Atena" />
+                <span>  Biblioteca Atena  <small>IFG Campus Inhumas</small></span>
+            </div>
+           
             <ul class="menu">
                 <a href="index.html">Início</a>
                 <a href="jogos.html">Jogos</a>
@@ -30,16 +47,92 @@
             </aside>
             <main class="principal">
                 <h1>Relatórios</h1>
-                <div class="abas"><a href="#" class="ativo">Empréstimos</a><a href="#">Jogos</a><a href="#">Usuários</a><a href="#">Categorias</a></div>
-                <div class="filtros"><input type="date" /><input type="date" /><button class="btn">Gerar relatório</button></div>
-                <div class="resumo"><div> Empréstimos: <strong>15</strong></div><div> Usuários ativos: <strong>8</strong></div></div>
-                <h2>Jogo mais emprestado: Jogo 1 (5)</h2>
-                <a href="#" class="btn btn-claro"><i class="fa-regular fa-file-pdf"></i> PDF</a>
-                <a href="#" class="btn btn-claro"><i class="fa-regular fa-file-excel"></i> Planilha</a>
+                <div class="abas"><a href="#" class="ativo" data-aba="emprestimos">Empréstimos</a><a href="#" data-aba="jogos">Jogos</a><a href="#" data-aba="usuarios">Usuários</a><a href="#" data-aba="categorias">Categorias</a></div>
+                <div class="filtros"><input type="date" /><input type="date" /><button type="button" class="btn" id="gerar">Gerar relatório</button></div>
+                <p id="periodo" class="periodo"></p>
+                <section class="aba-conteudo" id="aba-emprestimos">
+                    <div class="resumo"><div>Empréstimos<strong>15</strong></div><div>Usuários ativos<strong>8</strong></div></div>
+                    <h2>Jogo mais emprestado: Jogo 1 (5)</h2>
+                </section>
+                <section class="aba-conteudo" id="aba-jogos" hidden>
+                    <div class="resumo"><div>Total de jogos<strong>48</strong></div><div>Disponíveis<strong>36</strong></div></div>
+                    <h2>Categoria com mais jogos: Estratégia (12)</h2>
+                </section>
+                <section class="aba-conteudo" id="aba-usuarios" hidden>
+                    <div class="resumo"><div>Usuários cadastrados<strong>5</strong></div><div>Com empréstimo ativo<strong>2</strong></div></div>
+                    <h2>Usuário mais ativo: João Silva (4)</h2>
+                </section>
+                <section class="aba-conteudo" id="aba-categorias" hidden>
+                    <div class="resumo"><div>Categorias<strong>6</strong></div><div>Média de jogos por categoria<strong>8</strong></div></div>
+                    <h2>Categoria mais emprestada: Estratégia (9)</h2>
+                </section>
+                <a href="#" class="btn btn-claro nao-imprimir" id="btn-pdf"><i class="fa-regular fa-file-pdf"></i> PDF</a>
+                <a href="#" class="btn btn-claro nao-imprimir" id="btn-planilha"><i class="fa-regular fa-file-excel"></i> Planilha</a>
             </main>
         </div>
         <div class="footer">
             <p>&copy; 2026 Biblioteca Atena - IFG Campus Inhumas. Todos os direitos reservados.</p>
         </div>
+        <script>
+            var abas = document.querySelectorAll(".abas a");
+            var secoes = document.querySelectorAll(".aba-conteudo");
+
+            abas.forEach(function (aba) {
+                aba.addEventListener("click", function (evento) {
+                    evento.preventDefault();
+                    abas.forEach(function (a) { a.classList.remove("ativo"); });
+                    aba.classList.add("ativo");
+                    secoes.forEach(function (secao) {
+                        secao.hidden = secao.id !== "aba-" + aba.dataset.aba;
+                    });
+                });
+            });
+
+            var periodo = document.getElementById("periodo");
+            var datas = document.querySelectorAll(".filtros input[type=date]");
+
+            function formatar(data) {
+                var p = data.split("-");
+                return p[2] + "/" + p[1] + "/" + p[0];
+            }
+
+            document.getElementById("gerar").addEventListener("click", function () {
+                var inicio = datas[0].value;
+                var fim = datas[1].value;
+                if (!inicio || !fim) {
+                    periodo.textContent = "Escolha a data inicial e a data final.";
+                } else if (inicio > fim) {
+                    periodo.textContent = "A data inicial não pode ser depois da data final.";
+                } else {
+                    periodo.textContent = "Relatório gerado para o período de " + formatar(inicio) + " a " + formatar(fim) + ".";
+                }
+            });
+
+            document.getElementById("btn-pdf").addEventListener("click", function (evento) {
+                evento.preventDefault();
+                window.print();
+            });
+
+            document.getElementById("btn-planilha").addEventListener("click", function (evento) {
+                evento.preventDefault();
+                var secao = document.querySelector(".aba-conteudo:not([hidden])");
+                var aba = document.querySelector(".abas a.ativo");
+                var linhas = [["Relatório de " + aba.textContent], [periodo.textContent], ["Indicador", "Valor"]];
+                secao.querySelectorAll(".resumo div").forEach(function (cartao) {
+                    linhas.push([cartao.childNodes[0].textContent.trim(), cartao.querySelector("strong").textContent]);
+                });
+                linhas.push([secao.querySelector("h2").textContent, ""]);
+                var csv = linhas.map(function (linha) {
+                    return linha.map(function (c) { return '"' + c.replace(/"/g, '""') + '"'; }).join(";");
+                }).join("\r\n");
+                var arquivo = new Blob(["\ufeff" + csv], { type: "text/csv;charset=utf-8;" });
+                var link = document.createElement("a");
+                link.href = URL.createObjectURL(arquivo);
+                link.download = "relatorio-" + aba.dataset.aba + ".csv";
+                document.body.appendChild(link);
+                link.click();
+                link.remove();
+            });
+        </script>
     </body>
 </html>

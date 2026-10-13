@@ -1,0 +1,382 @@
+/* RESPONSIVO PARA TODOS OS TAMANHOS DE TELA
+   Linke este arquivo POR ÚLTIMO no <head> de todas as páginas.
+   Faixas: celular pequeno (até 360), celular (até 480), tablet em pé (até 800),
+   tablet deitado / notebook pequeno (até 1100), notebook (padrão) e tela grande (1400+). */
+
+/* ===== Base: vale para qualquer tela ===== */
+html {
+    font-size: clamp(15px, 0.6vw + 12px, 18px); /* letras acompanham a tela */
+}
+
+img {
+    max-width: 100%;
+}
+
+body {
+    overflow-x: clip;
+    padding-top: 0; /* sem números fixos: o menu agora acompanha a rolagem */
+}
+
+.nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    margin-bottom: 0;
+    flex-wrap: wrap;
+    row-gap: 8px;
+}
+
+.logo img {
+    height: clamp(36px, 4vw, 52px);
+    width: auto;
+}
+
+.banner {
+    margin-top: 0;
+    padding: clamp(32px, 6vw, 70px) 16px;
+}
+
+.banner h1 {
+    font-size: clamp(1.5rem, 4vw, 2.4rem);
+}
+
+.admin,
+.catalogo,
+.detalhes {
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+.tabela {
+    min-width: 0;
+}
+
+/* ===== Telas grandes (monitor, TV) ===== */
+@media (min-width: 1400px) {
+    .categorias,
+    .destaques,
+    .sobre {
+        max-width: 1300px;
+    }
+
+    .grade {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    }
+
+    .lateral {
+        width: 250px;
+    }
+}
+
+/* ===== Tablet deitado e notebook pequeno ===== */
+@media (max-width: 1100px) {
+    .admin,
+    .catalogo {
+        padding: 24px;
+        gap: 20px;
+    }
+
+    .lateral,
+    .filtros-lateral {
+        width: 200px;
+    }
+
+    .detalhes {
+        padding: 24px;
+    }
+
+    .detalhes-grid {
+        grid-template-columns: 240px 1fr;
+    }
+
+    .detalhes-info {
+        grid-column: 1 / -1;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .form-grid .larga {
+        grid-column: 1 / -1;
+    }
+
+    .tabela th,
+    .tabela td {
+        padding: 12px 10px;
+    }
+}
+
+/* ===== Tablet em pé e celulares grandes ===== */
+@media (max-width: 800px) {
+    .nav {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .logo {
+        margin-left: 0;
+    }
+
+    .menu {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 6px 16px;
+        margin-right: 0;
+    }
+
+    .menu a {
+        font-size: 1rem;
+    }
+
+    .banner input {
+        width: 100%;
+        max-width: 480px;
+    }
+
+    .botao-buscar {
+        margin: 10px 0 0 0;
+    }
+
+    .conteudo {
+        padding: 20px 12px;
+    }
+
+    .cartao {
+        padding: 24px 18px;
+    }
+
+    .admin,
+    .catalogo,
+    .detalhes {
+        flex-direction: column;
+        padding: 16px 12px;
+    }
+
+    .lateral {
+        width: 100%;
+        min-height: 0;
+        display: flex;
+        overflow-x: auto;
+        padding: 8px;
+    }
+
+    .lateral a {
+        white-space: nowrap;
+        margin-bottom: 0;
+        padding: 10px 12px;
+    }
+
+    .filtros-lateral {
+        width: 100%;
+    }
+
+    .principal h1,
+    .lista h1 {
+        font-size: 1.6rem;
+    }
+
+    .topo {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .busca {
+        width: 100%;
+    }
+
+    .resumo {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .tabela {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+        padding: 16px;
+    }
+
+    .botoes-form {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .abas,
+    .filtros {
+        overflow-x: auto;
+    }
+
+    .filtros {
+        flex-direction: column;
+    }
+
+    .detalhes-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .categorias,
+    .destaques,
+    .sobre {
+        padding: 20px 12px;
+    }
+}
+
+/* ===== Celular ===== */
+@media (max-width: 480px) {
+    .grade,
+    .lista_jogos {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    .cartao-jogo,
+    .jogo {
+        padding: 10px;
+    }
+
+    .jogo img,
+    .cartao-jogo img {
+        height: 110px;
+    }
+
+    .botao {
+        padding: 10px 16px;
+        font-size: 0.95rem;
+    }
+
+    .radios {
+        gap: 12px;
+    }
+
+    .footer p {
+        font-size: 0.85rem;
+    }
+}
+
+/* ===== Celular bem pequeno ===== */
+@media (max-width: 360px) {
+    .grade,
+    .lista_jogos,
+    .resumo {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ===== Telas de toque: botões e links fáceis de apertar ===== */
+@media (pointer: coarse) {
+    .btn,
+    .botao,
+    .botao-detalhes,
+    .btn-principal,
+    .menu a {
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+/* ===== Celular deitado (tela baixa): o menu não ocupa a tela toda ===== */
+@media (max-height: 500px) and (orientation: landscape) {
+    .nav {
+        position: static;
+        flex-direction: row;
+        padding: 6px 12px;
+    }
+
+    .logo img {
+        height: 34px;
+    }
+
+    .lateral {
+        min-height: 0;
+    }
+}
+
+/* ===== Jogos em destaque (Index): cards lado a lado ===== */
+.destaques {
+    display: block;
+    text-align: left;
+}
+
+.destaques .lista_jogos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    width: 100%;
+}
+
+.destaques .jogo {
+    width: auto;
+    max-width: none;
+    margin: 0;
+}
+
+@media (max-width: 480px) {
+    .destaques .lista_jogos {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 360px) {
+    .destaques .lista_jogos {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ===== Correção do menu no celular ===== */
+@media (max-width: 800px) {
+    html,
+    body {
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    .nav,
+    .admin,
+    .footer,
+    .principal {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+    }
+
+    .nav {
+        align-items: stretch;
+        padding: 10px 8px;
+    }
+
+    .logo {
+        justify-content: center;
+        margin: 0;
+    }
+
+    .menu {
+        flex-shrink: 1;
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 6px 16px;
+        margin: 0;
+        padding: 0 8px;
+    }
+
+    .menu a {
+        font-size: 0.95rem;
+        white-space: nowrap;
+    }
+}
+.menu a {
+    white-space: nowrap;
+}
+
+.menu {
+    flex-shrink: 0;
+}

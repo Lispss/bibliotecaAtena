@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="index.css" />
         <link rel="stylesheet" href="estilo.css" />
         <link rel="stylesheet" href="admin.css" />
+        <link rel="stylesheet" href="responsivo.css" />
     </head>
     <body>
         <nav class="nav">
@@ -30,18 +31,45 @@
             </aside>
             <main class="principal">
                 <h1>Empréstimos</h1>
-                <div class="abas"><a href="#" class="ativo">Todos</a><a href="#">Ativos</a><a href="#">Devolvidos</a></div>
-                <div class="topo"><input class="busca" type="text" placeholder="Pesquisar empréstimo" /></div>
+                <div class="abas"><a href="#" class="ativo" data-filtro="todos">Todos</a><a href="#" data-filtro="ativo">Ativos</a><a href="#" data-filtro="devolvido">Devolvidos</a></div>
+                <div class="topo"><input class="busca" id="busca" type="text" placeholder="Pesquisar empréstimo" /></div>
                 <table class="tabela">
                     <tr><th>Usuário</th><th>Jogo</th><th>Data do empréstimo</th><th>Devolução prevista</th><th>Status</th><th>Ações</th></tr>
-                    <tr><td>João Silva</td><td>Jogo 1</td><td>20/09/2026</td><td>27/09/2026</td><td><span class="selo verde">Em uso</span></td><td class="acoes"><a href="#"><i class="fa-solid fa-pen"></i></a></td></tr>
-                    <tr><td>Maria Oliveira</td><td>Jogo 2</td><td>18/09/2026</td><td>25/09/2026</td><td><span class="selo verde">Em uso</span></td><td class="acoes"><a href="#"><i class="fa-solid fa-pen"></i></a></td></tr>
-                    <tr><td>Pedro Santos</td><td>Jogo 3</td><td>10/09/2026</td><td>17/09/2026</td><td><span class="selo">Devolvido</span></td><td class="acoes"><a href="#"><i class="fa-solid fa-pen"></i></a></td></tr>
+                    <tr data-status="ativo"><td>João Silva</td><td>Jogo 1</td><td>20/09/2026</td><td>27/09/2026</td><td><span class="selo verde">Em uso</span></td><td class="acoes"><a href="#"><i class="fa-solid fa-pen"></i></a></td></tr>
+                    <tr data-status="ativo"><td>Maria Oliveira</td><td>Jogo 2</td><td>18/09/2026</td><td>25/09/2026</td><td><span class="selo verde">Em uso</span></td><td class="acoes"><a href="#"><i class="fa-solid fa-pen"></i></a></td></tr>
+                    <tr data-status="devolvido"><td>Pedro Santos</td><td>Jogo 3</td><td>10/09/2026</td><td>17/09/2026</td><td><span class="selo">Devolvido</span></td><td class="acoes"><a href="#"><i class="fa-solid fa-pen"></i></a></td></tr>
                 </table>
             </main>
         </div>
         <div class="footer">
             <p>&copy; 2026 Biblioteca Atena - IFG Campus Inhumas. Todos os direitos reservados.</p>
         </div>
+        <script>
+            var abas = document.querySelectorAll(".abas a");
+            var linhas = document.querySelectorAll(".tabela tr[data-status]");
+            var busca = document.getElementById("busca");
+            var filtro = "todos";
+
+            function aplicar() {
+                var texto = busca.value.toLowerCase();
+                linhas.forEach(function (linha) {
+                    var okStatus = filtro === "todos" || linha.dataset.status === filtro;
+                    var okTexto = linha.textContent.toLowerCase().includes(texto);
+                    linha.style.display = okStatus && okTexto ? "" : "none";
+                });
+            }
+
+            abas.forEach(function (aba) {
+                aba.addEventListener("click", function (evento) {
+                    evento.preventDefault();
+                    abas.forEach(function (a) { a.classList.remove("ativo"); });
+                    aba.classList.add("ativo");
+                    filtro = aba.dataset.filtro;
+                    aplicar();
+                });
+            });
+
+            busca.addEventListener("input", aplicar);
+        </script>
     </body>
 </html>
