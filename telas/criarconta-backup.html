@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca Atena - IFG Campus Inhumas | Criar Conta de Servidor</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .bg-athena-green {
+            background-color: #1e6b3b;
+        }
+        .text-athena-green {
+            color: #1e6b3b;
+        }
+        .border-athena-green {
+            border-color: #1e6b3b;
+        }
+        .btn-athena {
+            background-color: #4b9449;
+        }
+        .btn-athena:hover {
+            background-color: #3e7b3c;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen flex flex-col justify-between">
+
+    <header class="bg-athena-green text-white py-3 px-6 md:px-12 flex justify-between items-center shadow-md">
+        <div class="flex items-center space-x-3">
+            <img src="../img/logo.jpeg" alt="Logo Biblioteca Atena" class="h-10 w-auto rounded shadow-sm border border-white/20">
+            <div>
+                <h1 class="font-bold text-lg md:text-xl tracking-wide">Biblioteca Atena</h1>
+                <p class="text-xs text-green-100">IFG Campus Inhumas</p>
+            </div>
+        </div>
+
+        <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
+            <a href="#" class="hover:text-green-200 transition">Início</a>
+            <a href="#" class="hover:text-green-200 transition">Sobre</a>
+            <a href="#" class="hover:text-green-200 transition">Jogos</a>
+            <a href="#" class="border-b-2 border-white pb-1">Minha Conta</a>
+            <a href="#" class="text-lg"><i class="fa-regular fa-user"></i></a>
+        </nav>
+        
+        <div class="md:hidden flex items-center space-x-4">
+            <a href="#" class="text-lg"><i class="fa-regular fa-user"></i></a>
+        </div>
+    </header>
+
+    <main class="flex-grow flex items-center justify-center px-4 py-10">
+        <div class="bg-white border border-gray-200 shadow-xl rounded-2xl w-full max-w-lg p-8 md:p-10 relative">
+            
+            <div class="text-center mb-6">
+                <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-50 text-athena-green mb-2">
+                    <i class="fa-solid fa-user-shield text-2xl"></i>
+                </div>
+                <h2 class="text-2xl font-bold text-gray-800">Cadastro de Servidor</h2>
+                <p class="text-xs text-gray-500 mt-1">Acesso restrito aos servidores e colaboradores da Biblioteca Atena</p>
+            </div>
+
+            <div class="mb-5 p-3 bg-amber-50 border border-amber-200 rounded-lg flex items-start space-x-3">
+                <i class="fa-solid fa-circle-info text-amber-600 mt-0.5"></i>
+                <p class="text-xs text-amber-800">
+                    <strong>Atenção:</strong> Esta tela destina-se exclusivamente ao cadastro de servidores. Utilize seu e-mail institucional e matrícula Siape.
+                </p>
+            </div>
+
+            <form action="#" method="POST" class="space-y-4" onsubmit="return validarServidor(event)">
+                
+                <div class="relative">
+                    <span class="absolute inset-y-0 left-0 flex items-center pl-4 text-gray-400">
+                        <i class="fa-regular fa-user"></i>
+                    </span>
+                    <input type="text" placeholder="Nome completo" required
+                        class="w-full pl-11 pr-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-600 focus:bg-white transition">
+                </div>
+
+                <div class="relative">
+                    <span class="absolute inset-y-0 left-0 flex items-center pl-4 text-gray-400">
+                        <i class="fa-regular fa-envelope"></i>
+                    </span>
+                    <input type="email" id="email" placeholder="E-mail institucional (@ifg.edu.br)" required
+                        class="w-full pl-11 pr-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-600 focus:bg-white transition">
+                </div>
+
+                <div class="relative">
+                    <span class="absolute inset-y-0 left-0 flex items-center pl-4 text-gray-400">
+                        <i class="fa-solid fa-id-card"></i>
+                    </span>
+                    <input type="text" id="siape" placeholder="Matrícula SIAPE / Registro Funcional" required
+                        class="w-full pl-11 pr-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-600 focus:bg-white transition">
+                </div>
+
+                <div class="relative">
+                    <span class="absolute inset-y-0 left-0 flex items-center pl-4 text-gray-400">
+                        <i class="fa-regular fa-id-badge"></i>
+                    </span>
+                    <input type="text" placeholder="Login do Servidor" required
+                        class="w-full pl-11 pr-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-600 focus:bg-white transition">
+                </div>
+
+                <div class="relative">
+                    <span class="absolute inset-y-0 left-0 flex items-center pl-4 text-gray-400">
+                        <i class="fa-solid fa-lock"></i>
+                    </span>
+                    <input type="password" id="senha" placeholder="Senha" required
+                        class="w-full pl-11 pr-12 py-3 bg-gray-50 border border-gray-300 rounded-lg text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-600 focus:bg-white transition">
+                    <button type="button" onclick="togglePassword()" class="absolute inset-y-0 right-0 flex items-center pr-4 text-gray-400 hover:text-gray-600">
+                        <i id="eye-icon" class="fa-regular fa-eye"></i>
+                    </button>
+                </div>
+
+                <div class="pt-2">
+                    <button type="submit" class="w-full btn-athena text-white font-medium py-3 rounded-lg shadow-md transition duration-200">
+                        Cadastrar Servidor
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </main>
+
+    <footer class="bg-athena-green text-white py-6 px-6 md:px-12 flex flex-col sm:flex-row justify-between items-center text-sm border-t border-green-800">
+        <div class="flex items-center space-x-3 mb-4 sm:mb-0">
+            <img src="../img/logo.jpeg" alt="Logo Biblioteca Atena" class="h-10 w-auto rounded shadow-sm border border-white/20">
+            <div>
+                <p class="font-bold">Biblioteca Atena</p>
+                <p class="text-xs text-green-100">IFG Campus Inhumas</p>
+            </div>
+        </div>
+
+        <div class="flex items-center space-x-2">
+            <div class="bg-white text-athena-green font-black px-2 py-1 text-xs rounded tracking-widest">
+                IFG
+            </div>
+            <span class="text-xs tracking-wider text-green-100">INSTITUTO FEDERAL<br>Goiás</span>
+        </div>
+    </footer>
+
+    <script>
+        function togglePassword() {
+            const senhaInput = document.getElementById('senha');
+            const eyeIcon = document.getElementById('eye-icon');
+            if (senhaInput.type === 'password') {
+                senhaInput.type = 'text';
+                eyeIcon.classList.remove('fa-eye');
+                eyeIcon.classList.add('fa-eye-slash');
+            } else {
+                senhaInput.type = 'password';
+                eyeIcon.classList.remove('fa-eye-slash');
+                eyeIcon.classList.add('fa-eye');
+            }
+        }
+
+        function validarServidor(event) {
+            const email = document.getElementById('email').value;
+            if (!email.toLowerCase().endsWith('@ifg.edu.br')) {
+                alert('Atenção: Apenas e-mails institucionais (@ifg.edu.br) podem realizar o cadastro de servidor.');
+                event.preventDefault();
+                return false;
+            }
+            return true;
+        }
+    </script>
+
+</body>
+</html>
