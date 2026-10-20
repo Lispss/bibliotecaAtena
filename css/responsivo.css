@@ -373,10 +373,31 @@ body {
         white-space: nowrap;
     }
 }
-.menu a {
-    white-space: nowrap;
+
+/* ===== Nome ao lado da logo (todas as páginas) ===== */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
-.menu {
-    flex-shrink: 0;
+.logo span {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+    font-family: "Inter", Arial, sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: white;
+}
+
+.logo small {
+    font-size: 0.8rem;
+    font-weight: 400;
+}
+
+@media (max-width: 480px) {
+    .logo span {
+        font-size: 1.05rem;
+    }
 }
