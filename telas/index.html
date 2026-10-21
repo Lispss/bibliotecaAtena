@@ -1,74 +1,201 @@
 <!doctype html>
 <html lang="pt-br">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Página Inicial</title>
+
+    <title>Início - Biblioteca Atena</title>
+
+    <link rel="stylesheet" href="../css/estilo.css" />
+    <link rel="stylesheet" href="../css/admin.css" />
     <link rel="stylesheet" href="../css/index.css" />
-  </head>
-  <body class="pagina-inicial">
-    <nav class="nav">
-      <div class="logo">
-        <img src="../img/logo-horizontal.png" alt="BA - Biblioteca Atena" />
-        <span>Biblioteca Atena</span>
-      </div>
-      <ul class="menu">
-        <a href="index.html">Início</a>
-        <a href="destaques.html">Destaques</a>
-        <a href="jogos.html">Jogos</a>
-        <a href="login.html">Login</a>
-      </ul>
+    <link rel="stylesheet" href="../css/responsivo.css" />
+</head>
+
+<body class="pagina-inicial">
+
+    <!-- NAVBAR -->
+    <nav class="nav-index">
+
+        <div class="logo">
+            <img
+                src="../img/logo-horizontal.png"
+                alt="BA - Biblioteca Atena"
+            />
+
+            <span>
+                Biblioteca Atena
+                <small>IFG Campus Inhumas</small>
+            </span>
+        </div>
+
+        <button
+            class="menu-toggle"
+            aria-label="Abrir menu"
+        >
+            <i class="ph ph-list"></i>
+            <i class="ph ph-x"></i>
+        </button>
+
+        <ul class="menu">
+            <a href="index.html" class="ativo">Início</a>
+            <a href="destaques.html">Destaques</a>
+            <a href="jogos.html">Jogos</a>
+            <a href="login.html">Login</a>
+        </ul>
+
     </nav>
-    <div class="banner">
-      <h1>Bem-vindo à Biblioteca Atena</h1>
-      <input type="text" placeholder="Buscar jogos..." />
-    </div>
-    <div class="categorias">
-      <div class="titulo">Explore por Categoria</div>
-      <div class="botoes">
-        <button class="botao">
-          <i class="ph ph-horse"></i>
-          <span>Estratégia</span>
-        </button>
-        <button class="botao">
-          <i class="ph ph-club"></i>
-          <span>Cartas</span>
-        </button>
-        <button class="botao">
-          <i class="ph ph-puzzle-piece"></i>
-          <span>Quebra Cabeças</span>
-        </button>
-        <button class="botao">
-          <i class="ph ph-question"></i>
-          <span>Perguntas</span>
-        </button>
-        <button class="botao">
-          <i class="ph ph-dots-three"></i>
-          <span>Mais</span>
-        </button>
-      </div>
-    </div>
-    <div class="destaques">
-      <div class="titulo_destaques">Jogos em Destaque</div>
-      <div class="jogo">
-       <img src="../img/jogo1.jpg" alt="Jogo 1" />
-<div class="nome_jogo">Jogo 1</div>
-<div class="faixa_etaria">8+ anos</div>
-<div class="qtd_jogadores">2 a 4 jogadores</div>
-      </div>
-      <a href="jogos.html" class="link-mais-jogos">Ver mais jogos</a>
-    </div>
-    <div class="sobre">
-      <div class="titulo_sobre">Sobre a Biblioteca Atena</div>
-      <p>
-        A Biblioteca Atena é um espaço dedicado a jogos de tabuleiro, cartas e
-        quebra-cabeças. Nosso objetivo é proporcionar momentos de diversão e
-        aprendizado para todas as idades.
-      </p>
-    </div>
-    <div class="footer">
-      <p>&copy; 2026 Biblioteca Atena. Todos os direitos reservados.</p>
-    </div>
+
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="conteudo-index">
+
+        <!-- BANNER -->
+        <section class="banner">
+
+            <div class="banner-conteudo">
+
+                <h1>
+                    Bem-vindo à Biblioteca Atena
+                </h1>
+
+                <p>
+                    Encontre jogos, desafios e diversão para todos os momentos.
+                </p>
+
+                <div class="busca">
+                    <i class="ph ph-magnifying-glass"></i>
+
+                    <input
+                        type="text"
+                        placeholder="Buscar jogos..."
+                    />
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CATEGORIAS -->
+        <section class="categorias">
+
+            <div class="titulo">
+                Explore por Categoria
+            </div>
+
+            <div class="botoes">
+
+                <button class="botao">
+                    <i class="ph ph-horse"></i>
+                    <span>Estratégia</span>
+                </button>
+
+                <button class="botao">
+                    <i class="ph ph-club"></i>
+                    <span>Cartas</span>
+                </button>
+
+                <button class="botao">
+                    <i class="ph ph-puzzle-piece"></i>
+                    <span>Quebra-cabeças</span>
+                </button>
+
+                <button class="botao">
+                    <i class="ph ph-question"></i>
+                    <span>Perguntas</span>
+                </button>
+
+                <button class="botao">
+                    <i class="ph ph-dots-three"></i>
+                    <span>Mais</span>
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- DESTAQUES -->
+        <section class="destaques" id="destaques">
+
+            <div class="titulo_destaques">
+                Jogos em Destaque
+            </div>
+
+            <div class="jogos-destaque">
+
+                <article class="jogo">
+
+                    <img
+                        src="../img/jogo1.jpg"
+                        alt="Jogo 1"
+                    />
+
+                    <div class="info-jogo">
+
+                        <div class="nome_jogo">
+                            Jogo 1
+                        </div>
+
+                        <div class="faixa_etaria">
+                            8+ anos
+                        </div>
+
+                        <div class="qtd_jogadores">
+                            2 a 4 jogadores
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+            <a
+                href="jogos.html"
+                class="link-mais-jogos"
+            >
+                Ver mais jogos
+            </a>
+
+        </section>
+
+
+        <!-- SOBRE -->
+        <section class="sobre">
+
+            <div class="titulo_sobre">
+                Sobre a Biblioteca Atena
+            </div>
+
+            <p>
+                A Biblioteca Atena é um espaço dedicado a jogos de tabuleiro,
+                cartas e quebra-cabeças. Nosso objetivo é proporcionar
+                momentos de diversão e aprendizado para todas as idades.
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="footer">
+
+        <p>
+            &copy; 2026 Biblioteca Atena - IFG Campus Inhumas.
+            Todos os direitos reservados.
+        </p>
+
+    </footer>
+
+
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
-  </body>
+    <script src="../js/menu.js"></script>
+
+</body>
+
 </html>
+```

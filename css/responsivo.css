@@ -227,6 +227,75 @@ body {
     }
 }
 
+@media (max-width: 700px) {
+
+    .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+
+        padding: 10px 20px;
+    }
+
+    /* Logo + nome */
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        margin-left: 0;
+    }
+
+    .logo img {
+        height: 50px;
+        width: auto;
+    }
+
+    .logo span {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .logo small {
+        font-size: 0.75rem;
+    }
+
+    /* Botão hambúrguer */
+    .menu-toggle {
+        display: block;
+
+        margin: 0;
+        padding: 5px;
+
+        background: transparent;
+        border: none;
+
+        color: white;
+        font-size: 32px;
+        cursor: pointer;
+    }
+
+    /* Menu fechado */
+    .menu {
+        display: none;
+    }
+
+    /* Menu aberto */
+    .menu.aberto {
+        display: flex;
+        width: 100%;
+
+        flex-direction: column;
+        align-items: center;
+
+        gap: 20px;
+
+        margin: 15px 0 0;
+        padding: 20px 0;
+    }
+}
+
 /* ===== Celular ===== */
 @media (max-width: 480px) {
     .grade,
