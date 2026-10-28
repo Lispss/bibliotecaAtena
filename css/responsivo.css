@@ -1,11 +1,25 @@
-/* RESPONSIVO PARA TODOS OS TAMANHOS DE TELA
-   Linke este arquivo POR ÚLTIMO no <head> de todas as páginas.
-   Faixas: celular pequeno (até 360), celular (até 480), tablet em pé (até 800),
-   tablet deitado / notebook pequeno (até 1100), notebook (padrão) e tela grande (1400+). */
+```css
+/* =========================================================
+   RESPONSIVO PARA TODOS OS TAMANHOS DE TELA
 
-/* ===== Base: vale para qualquer tela ===== */
+   Linke este arquivo POR ÚLTIMO no <head> de todas as páginas.
+
+   Faixas:
+   - celular pequeno: até 360px
+   - celular: até 480px
+   - tablet em pé: até 800px
+   - tablet deitado / notebook pequeno: até 1100px
+   - notebook: padrão
+   - tela grande: 1400px+
+   ========================================================= */
+
+
+/* =========================================================
+   BASE
+   ========================================================= */
+
 html {
-    font-size: clamp(15px, 0.6vw + 12px, 18px); /* letras acompanham a tela */
+    font-size: clamp(15px, 0.6vw + 12px, 18px);
 }
 
 img {
@@ -14,22 +28,39 @@ img {
 
 body {
     overflow-x: clip;
-    padding-top: 0; /* sem números fixos: o menu agora acompanha a rolagem */
 }
 
-.nav {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    margin-bottom: 0;
-    flex-wrap: wrap;
-    row-gap: 8px;
+
+/* =========================================================
+   NAVBAR — BASE
+   Funciona para todas as páginas:
+   .nav
+   .nav-index
+   ========================================================= */
+
+.nav,
+.nav-index {
+    box-sizing: border-box;
 }
 
-.logo img {
+.nav *,
+.nav-index * {
+    box-sizing: border-box;
+}
+
+
+/* Logo */
+
+.nav .logo img,
+.nav-index .logo img {
     height: clamp(36px, 4vw, 52px);
     width: auto;
 }
+
+
+/* =========================================================
+   BANNER
+   ========================================================= */
 
 .banner {
     margin-top: 0;
@@ -40,12 +71,19 @@ body {
     font-size: clamp(1.5rem, 4vw, 2.4rem);
 }
 
+
+/* =========================================================
+   CONTEÚDO PRINCIPAL
+   ========================================================= */
+
 .admin,
 .catalogo,
 .detalhes {
     max-width: 1400px;
+
     margin-left: auto;
     margin-right: auto;
+
     width: 100%;
 }
 
@@ -53,8 +91,13 @@ body {
     min-width: 0;
 }
 
-/* ===== Telas grandes (monitor, TV) ===== */
+
+/* =========================================================
+   TELAS GRANDES — 1400px+
+   ========================================================= */
+
 @media (min-width: 1400px) {
+
     .categorias,
     .destaques,
     .sobre {
@@ -62,7 +105,8 @@ body {
     }
 
     .grade {
-        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        grid-template-columns: repeat(auto-fill,
+                minmax(220px, 1fr));
     }
 
     .lateral {
@@ -70,8 +114,14 @@ body {
     }
 }
 
-/* ===== Tablet deitado e notebook pequeno ===== */
+
+/* =========================================================
+   TABLET DEITADO / NOTEBOOK PEQUENO
+   até 1100px
+   ========================================================= */
+
 @media (max-width: 1100px) {
+
     .admin,
     .catalogo {
         padding: 24px;
@@ -109,26 +159,169 @@ body {
     }
 }
 
-/* ===== Tablet em pé e celulares grandes ===== */
+
+/* =========================================================
+   TABLET EM PÉ / CELULAR GRANDE
+   até 800px
+   ========================================================= */
+
 @media (max-width: 800px) {
-    .nav {
-        flex-direction: column;
-        padding: 10px;
+
+    /* =====================================================
+       AJUSTES GERAIS
+       ===================================================== */
+
+    html,
+    body {
+        max-width: 100%;
+        overflow-x: hidden;
     }
 
-    .logo {
-        margin-left: 0;
-    }
-
-    .menu {
+    .nav,
+    .nav-index {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
         flex-wrap: wrap;
-        justify-content: center;
-        gap: 6px 16px;
-        margin-right: 0;
+        padding: 10px 16px;
+        margin: 0;
     }
 
-    .menu a {
+    /* Logo e nome sempre lado a lado */
+    .nav .logo,
+    .nav-index .logo {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 8px;
+        flex: 1;
+        min-width: 0;
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav .logo img,
+    .nav-index .logo img {
+        height: 46px;
+        width: auto;
+        flex-shrink: 0;
+    }
+
+    .nav .logo span,
+    .nav-index .logo span {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        line-height: 1.2;
+        min-width: 0;
+        font-size: 1.1rem;
+    }
+
+    .nav .logo small,
+    .nav-index .logo small {
+        font-size: 0.75rem;
+    }
+
+    /* Botão hambúrguer / fechar */
+    .nav .menu-toggle,
+    .nav-index .menu-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 42px;
+        height: 42px;
+        padding: 5px;
+        margin: 0;
+        flex-shrink: 0;
+        color: white;
+        background: transparent;
+        border: none;
+        font-size: 28px;
+        cursor: pointer;
+    }
+
+    /* Menu fechado */
+    .nav .menu,
+    .nav-index .menu {
+        display: none;
+    }
+
+    /* Menu aberto abaixo da logo e do botão */
+    .nav .menu.aberto,
+    .nav-index .menu.aberto {
+        display: flex;
+        flex: 0 0 100%;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        gap: 18px;
+        margin: 20px 0 0;
+        padding: 12px 0 20px;
+    }
+
+    .nav .menu a,
+    .nav-index .menu a {
+        white-space: nowrap;
         font-size: 1rem;
+    }
+
+
+    /* =====================================================
+       MENU FECHADO
+       ===================================================== */
+
+    .nav .menu,
+    .nav-index .menu {
+
+        display: none;
+    }
+
+
+    /* =====================================================
+       MENU ABERTO
+       ===================================================== */
+
+    .nav .menu.aberto,
+    .nav-index .menu.aberto {
+
+        display: flex;
+
+        width: 100%;
+
+        flex-basis: 100%;
+
+        flex-direction: column;
+
+        align-items: center;
+
+        gap: 20px;
+
+        margin: 15px 0 0;
+
+        padding: 20px 0;
+    }
+
+
+    /* Links do menu */
+
+    .nav .menu a,
+    .nav-index .menu a {
+
+        font-size: 1rem;
+
+        white-space: nowrap;
+    }
+
+
+    /* =====================================================
+       BANNER
+       ===================================================== */
+
+    .banner {
+        margin-top: 70px;
     }
 
     .banner input {
@@ -140,6 +333,11 @@ body {
         margin: 10px 0 0 0;
     }
 
+
+    /* =====================================================
+       CONTEÚDO
+       ===================================================== */
+
     .conteudo {
         padding: 20px 12px;
     }
@@ -148,38 +346,72 @@ body {
         padding: 24px 18px;
     }
 
+
+    /* =====================================================
+       ADMIN / CATÁLOGO / DETALHES
+       ===================================================== */
+
     .admin,
     .catalogo,
     .detalhes {
+
         flex-direction: column;
+
         padding: 16px 12px;
     }
 
+
+    /* =====================================================
+       MENU LATERAL
+       ===================================================== */
+
     .lateral {
+
         width: 100%;
+
         min-height: 0;
+
         display: flex;
+
         overflow-x: auto;
+
         padding: 8px;
     }
 
     .lateral a {
+
         white-space: nowrap;
+
         margin-bottom: 0;
+
         padding: 10px 12px;
     }
+
 
     .filtros-lateral {
         width: 100%;
     }
 
+
+    /* =====================================================
+       TÍTULOS
+       ===================================================== */
+
     .principal h1,
     .lista h1 {
+
         font-size: 1.6rem;
     }
 
+
+    /* =====================================================
+       TOPO
+       ===================================================== */
+
     .topo {
+
         flex-direction: column;
+
         align-items: stretch;
     }
 
@@ -187,286 +419,566 @@ body {
         width: 100%;
     }
 
+
+    /* =====================================================
+       RESUMO
+       ===================================================== */
+
     .resumo {
+
         grid-template-columns: 1fr 1fr;
     }
 
+
+    /* =====================================================
+       TABELA
+       ===================================================== */
+
     .tabela {
+
         display: block;
+
         overflow-x: auto;
+
         white-space: nowrap;
     }
 
+
+    /* =====================================================
+       FORMULÁRIO
+       ===================================================== */
+
     .form-grid {
+
         grid-template-columns: 1fr;
+
         padding: 16px;
     }
 
     .botoes-form {
+
         flex-wrap: wrap;
+
         gap: 10px;
     }
 
+
+    /* =====================================================
+       ABAS / FILTROS
+       ===================================================== */
+
     .abas,
     .filtros {
+
         overflow-x: auto;
     }
 
     .filtros {
+
         flex-direction: column;
     }
 
+
+    /* =====================================================
+       DETALHES
+       ===================================================== */
+
     .detalhes-grid {
+
         grid-template-columns: 1fr;
     }
+
+
+    /* =====================================================
+       SEÇÕES DO INDEX
+       ===================================================== */
 
     .categorias,
     .destaques,
     .sobre {
+
         padding: 20px 12px;
     }
 }
 
+
+/* =========================================================
+   CELULAR — até 700px
+   ========================================================= */
+
 @media (max-width: 700px) {
 
-    .nav {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        flex-wrap: nowrap;
+    /* =====================================================
+       NAVBAR
+       ===================================================== */
+
+    .nav,
+    .nav-index {
 
         padding: 10px 20px;
     }
 
-    /* Logo + nome */
-    .logo {
-        display: flex;
-        align-items: center;
+
+    /* =====================================================
+       LOGO
+       ===================================================== */
+
+    .nav .logo,
+    .nav-index .logo {
+
         gap: 10px;
 
-        margin-left: 0;
+        margin: 0;
     }
 
-    .logo img {
+
+    .nav .logo img,
+    .nav-index .logo img {
+
         height: 50px;
+
         width: auto;
     }
 
-    .logo span {
+
+    .nav .logo span,
+    .nav-index .logo span {
+
         display: flex;
+
         flex-direction: column;
     }
 
-    .logo small {
+
+    .nav .logo small,
+    .nav-index .logo small {
+
         font-size: 0.75rem;
     }
 
-    /* Botão hambúrguer */
-    .menu-toggle {
-        display: block;
+
+    /* =====================================================
+       BOTÃO HAMBÚRGUER
+       ===================================================== */
+
+    .nav .menu-toggle,
+    .nav-index .menu-toggle {
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        width: 42px;
+
+        height: 42px;
 
         margin: 0;
+
         padding: 5px;
 
         background: transparent;
+
         border: none;
 
         color: white;
+
         font-size: 32px;
+
         cursor: pointer;
     }
 
-    /* Menu fechado */
-    .menu {
+
+    /* =====================================================
+       MENU FECHADO
+       ===================================================== */
+
+    .nav .menu,
+    .nav-index .menu {
+
         display: none;
     }
 
-    /* Menu aberto */
-    .menu.aberto {
+
+    /* =====================================================
+       MENU ABERTO
+       ===================================================== */
+
+    .nav .menu.aberto,
+    .nav-index .menu.aberto {
+
         display: flex;
+
         width: 100%;
 
+        flex-basis: 100%;
+
         flex-direction: column;
+
         align-items: center;
 
         gap: 20px;
 
         margin: 15px 0 0;
+
         padding: 20px 0;
+    }
+
+
+    .nav .menu a,
+    .nav-index .menu a {
+
+        font-size: 1rem;
+
+        white-space: nowrap;
     }
 }
 
-/* ===== Celular ===== */
+
+/* =========================================================
+   CELULAR — até 480px
+   ========================================================= */
+
 @media (max-width: 480px) {
+
+    /* =====================================================
+       NAVBAR
+       ===================================================== */
+
+    .nav,
+    .nav-index {
+
+        padding: 10px 12px;
+    }
+
+
+    /* =====================================================
+       LOGO
+       ===================================================== */
+
+    .nav .logo,
+    .nav-index .logo {
+
+        gap: 6px;
+    }
+
+
+    .nav .logo img,
+    .nav-index .logo img {
+
+        height: 46px;
+    }
+
+
+    .nav .logo span,
+    .nav-index .logo span {
+
+        font-size: 1.05rem;
+    }
+
+
+    .nav .logo small,
+    .nav-index .logo small {
+
+        font-size: 0.7rem;
+    }
+
+
+    /* =====================================================
+       BOTÃO
+       ===================================================== */
+
+    .nav .menu-toggle,
+    .nav-index .menu-toggle {
+
+        width: 40px;
+
+        height: 40px;
+
+        font-size: 30px;
+    }
+
+
+    /* =====================================================
+       JOGOS
+       ===================================================== */
+
     .grade,
     .lista_jogos {
+
         grid-template-columns: 1fr 1fr;
+
         gap: 10px;
     }
 
+
     .cartao-jogo,
     .jogo {
+
         padding: 10px;
     }
 
+
     .jogo img,
     .cartao-jogo img {
+
         height: 110px;
     }
 
+
+    /* =====================================================
+       BOTÕES
+       ===================================================== */
+
     .botao {
+
         padding: 10px 16px;
+
         font-size: 0.95rem;
     }
 
+
+    /* =====================================================
+       RADIOS
+       ===================================================== */
+
     .radios {
+
         gap: 12px;
     }
 
+
+    /* =====================================================
+       FOOTER
+       ===================================================== */
+
     .footer p {
+
         font-size: 0.85rem;
+    }
+
+
+    /* =====================================================
+       DESTAQUES
+       ===================================================== */
+
+    .destaques .lista_jogos {
+
+        grid-template-columns: 1fr 1fr;
+
+        gap: 10px;
     }
 }
 
-/* ===== Celular bem pequeno ===== */
+
+/* =========================================================
+   CELULAR BEM PEQUENO — até 360px
+   ========================================================= */
+
 @media (max-width: 360px) {
+
+    /* =====================================================
+       NAVBAR
+       ===================================================== */
+
+    .nav,
+    .nav-index {
+
+        padding: 8px;
+    }
+
+
+    .nav .logo img,
+    .nav-index .logo img {
+
+        height: 40px;
+    }
+
+
+    .nav .logo span,
+    .nav-index .logo span {
+
+        font-size: 0.95rem;
+    }
+
+
+    .nav .logo small,
+    .nav-index .logo small {
+
+        font-size: 0.6rem;
+    }
+
+
+    .nav .menu-toggle,
+    .nav-index .menu-toggle {
+
+        width: 38px;
+
+        height: 38px;
+
+        font-size: 28px;
+    }
+
+
+    /* =====================================================
+       JOGOS
+       ===================================================== */
+
     .grade,
     .lista_jogos,
     .resumo {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    /* =====================================================
+       DESTAQUES
+       ===================================================== */
+
+    .destaques .lista_jogos {
+
         grid-template-columns: 1fr;
     }
 }
 
-/* ===== Telas de toque: botões e links fáceis de apertar ===== */
+
+/* =========================================================
+   TELAS DE TOQUE
+   ========================================================= */
+
 @media (pointer: coarse) {
+
     .btn,
     .botao,
     .botao-detalhes,
     .btn-principal,
     .menu a {
+
         min-height: 44px;
+
         display: inline-flex;
+
         align-items: center;
+
         justify-content: center;
     }
 }
 
-/* ===== Celular deitado (tela baixa): o menu não ocupa a tela toda ===== */
+
+/* =========================================================
+   CELULAR DEITADO
+   Tela com pouca altura
+   ========================================================= */
+
 @media (max-height: 500px) and (orientation: landscape) {
-    .nav {
+
+    .nav,
+    .nav-index {
+
         position: static;
+
         flex-direction: row;
+
         padding: 6px 12px;
     }
 
-    .logo img {
+
+    .nav .logo img,
+    .nav-index .logo img {
+
         height: 34px;
     }
 
+
     .lateral {
+
         min-height: 0;
     }
 }
 
-/* ===== Jogos em destaque (Index): cards lado a lado ===== */
+
+/* =========================================================
+   JOGOS EM DESTAQUE — INDEX
+   ========================================================= */
+
 .destaques {
+
     display: block;
+
     text-align: left;
 }
 
+
 .destaques .lista_jogos {
+
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(200px, 1fr));
+
     gap: 20px;
+
     width: 100%;
 }
 
+
 .destaques .jogo {
+
     width: auto;
+
     max-width: none;
+
     margin: 0;
 }
 
-@media (max-width: 480px) {
-    .destaques .lista_jogos {
-        grid-template-columns: 1fr 1fr;
-        gap: 10px;
-    }
-}
 
-@media (max-width: 360px) {
-    .destaques .lista_jogos {
-        grid-template-columns: 1fr;
-    }
-}
+/* =========================================================
+   NOME AO LADO DA LOGO
+   Todas as páginas
+   ========================================================= */
 
-/* ===== Correção do menu no celular ===== */
-@media (max-width: 800px) {
-    html,
-    body {
-        max-width: 100%;
-        overflow-x: hidden;
-    }
-
-    .nav,
-    .admin,
-    .footer,
-    .principal {
-        width: 100%;
-        max-width: 100%;
-        min-width: 0;
-    }
-
-    .nav {
-        align-items: stretch;
-        padding: 10px 8px;
-    }
-
-    .logo {
-        justify-content: center;
-        margin: 0;
-    }
-
-    .menu {
-        flex-shrink: 1;
-        width: 100%;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 6px 16px;
-        margin: 0;
-        padding: 0 8px;
-    }
-
-    .menu a {
-        font-size: 0.95rem;
-        white-space: nowrap;
-    }
-}
-
-/* ===== Nome ao lado da logo (todas as páginas) ===== */
 .logo {
+
     display: flex;
+
     align-items: center;
+
     gap: 12px;
 }
 
+
 .logo span {
+
     display: flex;
+
     flex-direction: column;
+
     line-height: 1.2;
+
     font-family: "Inter", Arial, sans-serif;
+
     font-size: 1.25rem;
+
     font-weight: 700;
+
     color: white;
 }
 
+
 .logo small {
+
     font-size: 0.8rem;
+
     font-weight: 400;
 }
 
+
 @media (max-width: 480px) {
+
     .logo span {
+
         font-size: 1.05rem;
     }
 }

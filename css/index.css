@@ -1,26 +1,3 @@
-/* ========== RESET E BASE ========== */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-:root {
-    --verde-escuro: #075b22;
-    --verde-icone: #1e5a34;
-    --verde-botao: #4f9a2f;
-    --verde-botao-hover: #3f8224;
-    --cinza-fundo: #f4f6f4;
-    --texto: #1a1f2b;
-}
-
-body {
-    font-family: "Inter", sans-serif;
-    color: var(--texto);
-    background: #fff;
-}
-
 /* Espaço para a navbar fixa do Index */
 .conteudo-index {
     padding-top: 80px;
@@ -498,8 +475,8 @@ body {
 
 @media (max-width: 800px) {
     .conteudo-index {
-            padding-top: 70px;
-        }
+        padding-top: 70px;
+    }
 
     .nav-index {
         width: 100%;
@@ -551,7 +528,6 @@ body {
 
         justify-content: center;
     }
-
 
     /* BOTÃO MENU */
 
@@ -616,7 +592,6 @@ body {
         margin-top: 70px;
     }
 }
-
 
 /* =========================================================
    CELULAR

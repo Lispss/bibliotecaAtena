@@ -12,15 +12,38 @@
         <link rel="stylesheet" href="../css/responsivo.css" />
     </head>
     <body>
-        <nav class="nav">
-            <div class="logo"></a><img src="../img/logo-horizontal.png" alt="BA - Biblioteca Atena" /><span>Biblioteca Atena<small>IFG Campus Inhumas</small></span></div>
-            <ul class="menu">
-                <a href="index.html">Início</a>
-                <a href="index.html#destaques">Destaques</a>
-                <a href="jogos.html" class="ativo">Jogos</a>
-                <a href="login.html">Login</a>
-            </ul>
-        </nav>
+        
+<nav class="nav-index">
+    <div class="logo">
+        <img
+            src="../img/logo-horizontal.png"
+            alt="BA - Biblioteca Atena"
+        />
+
+        <span>
+            Biblioteca Atena
+            <small>IFG Campus Inhumas</small>
+        </span>
+    </div>
+
+    <button
+        class="menu-toggle"
+        type="button"
+        aria-label="Abrir menu"
+        aria-expanded="false"
+    >
+        <i class="ph ph-list"></i>
+        <i class="ph ph-x"></i>
+    </button>
+
+    <ul class="menu">
+        <a href="index.html">Início</a>
+        <a href="destaques.html" class="ativo">Destaques</a>
+        <a href="jogos.html">Jogos</a>
+        <a href="login.html">Login</a>
+    </ul>
+</nav>
+
         <div class="catalogo">
             <aside class="filtros-lateral">
                 <h3>Faixa etária</h3>
@@ -63,5 +86,7 @@
         <div class="footer">
             <p>&copy; 2026 Biblioteca Atena - IFG Campus Inhumas. Todos os direitos reservados.</p>
         </div>
+        <script src="https://unpkg.com/@phosphor-icons/web"></script>
+        <script src="../js/menu.js"></script>
     </body>
 </html>

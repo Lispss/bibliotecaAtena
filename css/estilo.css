@@ -1,16 +1,189 @@
-/* Estilo compartilhado das telas de formulário (login, criar conta, etc.).
-   Use junto com index.css (menu e rodapé): 
-   <link rel="stylesheet" href="index.css" />
-   <link rel="stylesheet" href="estilo.css" /> */
+/* =========================================================
+   RESET E BASE GLOBAL
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   VARIÁVEIS GLOBAIS=========================================================*/
+:root {
+    --verde-escuro: #075b22;
+    --verde-icone: #1e5a34;
+    --verde-botao: #4f9a2f;
+    --verde-botao-hover: #3f8224;
+    --cinza-fundo: #f4f6f4;
+    --texto: #1a1f2b;
+}
+
+/* =========================================================
+   BASE GLOBAL
+   ========================================================= */
 
 body {
     font-family: "Inter", Arial, sans-serif;
-    background-color: #f7f9f8;
-    color: #1f2937;
-    padding-top: 100px;
-    min-height: 100vh;
+    color: var(--texto);
+    background: #fff;
+}
+
+
+.nav-index .logo small {
+    font-size: 0.75rem;
+}
+
+.nav-index .logo img {
+    height: 50px;
+    width: auto;
+}
+
+/* =========================================================
+   NAVBAR COMPARTILHADA
+   ========================================================= */
+
+.nav,
+.nav-index {
+    background-color: var(--verde-escuro);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 15px 3%;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    z-index: 1000;
+
+    box-sizing: border-box;
+}
+
+/* =========================================================
+   LOGO
+   ========================================================= */
+
+.nav .logo,
+.nav-index .logo {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    color: white;
+
+    margin: 0;
+}
+
+.nav .logo img,
+.nav-index .logo img {
+    height: 50px;
+    width: auto;
+}
+
+.nav .logo span,
+.nav-index .logo span {
     display: flex;
     flex-direction: column;
+
+    line-height: 1.2;
+
+    font-family: "Inter", Arial, sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+
+    color: white;
+}
+
+.nav .logo small,
+.nav-index .logo small {
+    font-size: 0.75rem;
+    font-weight: 400;
+}
+
+/* =========================================================
+   MENU
+   ========================================================= */
+
+.nav .menu,
+.nav-index .menu {
+    display: flex;
+    align-items: center;
+
+    gap: 30px;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+.nav .menu a,
+.nav-index .menu a {
+    text-decoration: none;
+
+    color: white;
+
+    font-size: 1.1rem;
+    font-weight: 500;
+
+    border-bottom: 2px solid transparent;
+
+    transition: border-color 0.2s;
+}
+
+.nav .menu a:hover,
+.nav .menu a.ativo,
+.nav-index .menu a:hover,
+.nav-index .menu a.ativo {
+    border-bottom-color: white;
+}
+
+/* =========================================================
+   BOTÃO MENU MOBILE
+   ========================================================= */
+
+.nav .menu-toggle,
+.nav-index .menu-toggle {
+    display: none;
+
+    background: transparent;
+    border: none;
+
+    color: white;
+
+    font-size: 1.8rem;
+
+    cursor: pointer;
+
+    padding: 5px;
+}
+
+
+/* Ícone fechado */
+
+.nav .menu-toggle .fa-xmark,
+.nav-index .menu-toggle .fa-xmark {
+    display: none;
+}
+
+
+/* Quando o menu está aberto */
+
+.nav .menu-toggle.aberto .fa-bars,
+.nav-index .menu-toggle.aberto .fa-bars {
+    display: none;
+}
+
+.nav .menu-toggle.aberto .fa-xmark,
+.nav-index .menu-toggle.aberto .fa-xmark {
+    display: inline-block;
 }
 
 .conteudo {
@@ -55,7 +228,7 @@ body {
     margin-bottom: 18px;
 }
 
-.campo > i:first-child {
+.campo>i:first-child {
     position: absolute;
     left: 18px;
     top: 50%;
