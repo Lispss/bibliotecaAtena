@@ -30,7 +30,8 @@
 </head>
 <body class="bg-gray-50 min-h-screen flex flex-col justify-between">
 
-    <header class="bg-athena-green text-white py-3 px-6 md:px-12 flex justify-between items-center shadow-md">
+<header class="bg-athena-green text-white py-3 px-6 md:px-12 flex justify-between items-center shadow-md">
+        <!-- Logo e Título -->
         <div class="flex items-center space-x-3">
             <img src="../img/logo.jpeg" alt="Logo Biblioteca Atena" class="h-10 w-auto rounded shadow-sm border border-white/20">
             <div>
@@ -39,16 +40,18 @@
             </div>
         </div>
 
+        <!-- Menu de Navegação para Computador -->
         <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
-            <a href="#" class="hover:text-green-200 transition">Início</a>
-            <a href="#" class="hover:text-green-200 transition">Sobre</a>
-            <a href="#" class="hover:text-green-200 transition">Jogos</a>
-            <a href="#" class="border-b-2 border-white pb-1">Minha Conta</a>
-            <a href="#" class="text-lg"><i class="fa-regular fa-user"></i></a>
+            <a href="index.html" class="hover:text-green-200 transition">Início</a>
+            <a href="destaques.html" class="hover:text-green-200 transition">Destaques</a>
+            <a href="jogos.html" class="hover:text-green-200 transition">Jogos</a>
+            <a href="minha-conta.html" class="hover:text-green-200 transition">Minha Conta</a>
+            <a href="minha-conta.html" class="text-lg hover:text-green-200 transition"><i class="fa-regular fa-user"></i></a>
         </nav>
         
+        <!-- Menu para Celular (Ícone de Usuário) -->
         <div class="md:hidden flex items-center space-x-4">
-            <a href="#" class="text-lg"><i class="fa-regular fa-user"></i></a>
+            <a href="minha-conta.html" class="text-lg"><i class="fa-regular fa-user"></i></a>
         </div>
     </header>
 
