@@ -433,19 +433,8 @@
     max-width: 800px;
 }
 
-
-/* =========================================================
-   FOOTER
-   ========================================================= */
-
-.footer {
-    background-color: var(--verde-escuro);
-
-    color: white;
-
-    text-align: center;
-
-    padding: 20px;
+.content {
+    flex: 1 0 auto;
 }
 
 
@@ -654,15 +643,7 @@
 
 /* espaço reservado para o rodapé */
 
-.pagina-inicial .footer {
-    position: absolute;
 
-    bottom: 0;
-
-    left: 0;
-
-    width: 100%;
-}
 
 
 /* =========================================================

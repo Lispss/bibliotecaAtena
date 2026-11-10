@@ -24,10 +24,16 @@
    BASE GLOBAL
    ========================================================= */
 
+html,
+body {
+    height: 100%;
+}
+
 body {
     font-family: "Inter", Arial, sans-serif;
     color: var(--texto);
     background: #fff;
+    
 }
 
 
@@ -188,10 +194,11 @@ body {
 
 .conteudo {
     flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 40px 20px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 40px 20px;
+        margin-top: 6%;
 }
 
 .cartao {
@@ -315,6 +322,24 @@ body {
 .links-cartao p {
     border-top: 1px solid #e3e8e5;
     padding-top: 14px;
+}
+/* =========================================================
+   FOOTER
+   ========================================================= */
+.content {
+    flex: 1 0 auto;
+    margin-bottom: 40px;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--verde-escuro);
+    color: white;
+    text-align: center;
+    padding: 20px;
 }
 
 @media (max-width: 700px) {
